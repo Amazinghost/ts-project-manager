@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import "./App.css";
 import { useTaskStore } from "./stores/useTaskStore";
 
 function App() {
-  const { tasks, addTask } = useTaskStore();
+  const { tasks, addTask, getAllTasks } = useTaskStore();
 
   console.log("Tasks: ", tasks);
+  useEffect(() => {
+    getAllTasks();
+  }, [getAllTasks]);
 
   return (
     <div>
