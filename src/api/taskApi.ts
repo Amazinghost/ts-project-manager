@@ -7,4 +7,5 @@ export type Task = {
 
 export const taskApi = {
   getAll: () => api.get("/tasks"),
+  addTask: (name: string) => api.post("/tasks", { name }),
 };

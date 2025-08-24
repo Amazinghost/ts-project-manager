@@ -9,17 +9,22 @@ type TaskState = {
 
 export const useTaskStore = create<TaskState>((set) => ({
   tasks: [],
-  addTask: (name) =>
-    set((state) => ({
-      tasks: [...state.tasks, { id: Date.now(), name }],
-    })),
+  addTask: async (name) => {
+    try {
+      const response = await taskApi.addTask(name);
+
+      console.log("Add task response: ", response)
+    } catch (error) {
+      console.error("Failed to add a new task", error);
+    }
+  },
   getAllTasks: async () => {
     try {
       const { data } = await taskApi.getAll();
 
       set({ tasks: data });
-    } catch (err) {
-      console.error("Failed to fetch tasks", err);
+    } catch (error) {
+      console.error("Failed to fetch tasks", error);
     }
   },
 }));
