@@ -6,5 +6,5 @@ export type Task = {
 };
 
 export const taskApi = {
-  getAll: () => api.get("/task/getAll"),
+  getAll: () => api.get("/tasks"),
 };

@@ -1,9 +1,7 @@
 import axios from "axios";
 
-//env variables for BASE URL
-
 export const api = axios.create({
-  baseURL: "",
+  baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",

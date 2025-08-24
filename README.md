@@ -1,4 +1,5 @@
 # ts-project-manager
+
 My first TypeScript App
 
 TECHNOLOGIES:
@@ -6,5 +7,6 @@ TECHNOLOGIES:
 State manager: Zuztand
 Styles: Tailwindcss
 Api calls: Axios
-DB: TODO
+DB: json-server
+Routing: TODO
 Id generator: TODO

@@ -6,6 +6,7 @@ function App() {
   const { tasks, addTask, getAllTasks } = useTaskStore();
 
   console.log("Tasks: ", tasks);
+
   useEffect(() => {
     getAllTasks();
   }, [getAllTasks]);
