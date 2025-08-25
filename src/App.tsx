@@ -8,6 +8,7 @@ function App() {
 
   console.log("Tasks: ", tasks);
 
+
   useEffect(() => {
     getAllTasks();
   }, [getAllTasks]);
