@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import { useTaskStore } from "./stores/useTaskStore";
+import { Outlet } from "react-router";
 
 function App() {
   const { tasks, addTask, getAllTasks } = useTaskStore();
@@ -17,6 +18,7 @@ function App() {
       <button type="button" onClick={() => addTask("Test")}>
         Add Task
       </button>
+      <Outlet />
     </div>
   );
 }

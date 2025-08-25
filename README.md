@@ -8,5 +8,4 @@ State manager: Zuztand
 Styles: Tailwindcss
 Api calls: Axios
 DB: json-server
-Routing: TODO
-Id generator: TODO
+Routing: react-router
