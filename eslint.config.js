@@ -5,13 +5,16 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
 
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+// const tsEslint = require("typescript-eslint");
+
 export default tseslint.config([
   globalIgnores(["dist"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
+      tseslint.configs.strict,
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
     ],
@@ -19,7 +22,19 @@ export default tseslint.config([
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/typedef": "warn",
-      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/strict-boolean-expressions": "warn",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-misused-promises": "error",
+      "@typescript-eslint/consistent-type-imports": "warn",
+      "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-inferrable-types": "warn",
+      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+      "@typescript-eslint/no-unnecessary-type-constraint": "warn",
+
+      "@typescript-eslint/method-signature-style": ["warn", "property"],
+      "@typescript-eslint/prefer-readonly": "warn", // readonly where possible
     },
     languageOptions: {
       ecmaVersion: 2020,
