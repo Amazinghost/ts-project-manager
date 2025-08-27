@@ -3,6 +3,7 @@ import "./index.css";
 import { RouterProvider } from "react-router/dom";
 import { router } from "./routes/router";
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = document.getElementById("root")!;
 
 createRoot(root).render(<RouterProvider router={router} />);
