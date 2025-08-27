@@ -1,19 +1,21 @@
 import { create } from "zustand";
 import { taskApi, type Task } from "../api/taskApi";
 
-type TaskState = {
+interface TaskState {
   tasks: Task[];
-  addTask: (name: string) => void;
+  addTask: (name: string) => Promise<void>;
   getAllTasks: () => Promise<void>;
-};
+}
 
 export const useTaskStore = create<TaskState>((set) => ({
   tasks: [],
   addTask: async (name) => {
     try {
-      const response = await taskApi.addTask(name);
+      const { data } = await taskApi.addTask(name);
 
-      console.log("Add task response: ", response)
+      set((state) => ({
+        tasks: [...state.tasks, data],
+      }));
     } catch (error) {
       console.error("Failed to add a new task", error);
     }

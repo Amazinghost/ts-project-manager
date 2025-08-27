@@ -1,1 +1,1 @@
-export const useLoginStore = () => {};
+export const useLoginStore = () : void => {};

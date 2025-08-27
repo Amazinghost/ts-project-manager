@@ -5,9 +5,6 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
 
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-// const tsEslint = require("typescript-eslint");
-
 export default tseslint.config([
   globalIgnores(["dist"]),
   {
@@ -20,7 +17,13 @@ export default tseslint.config([
     ],
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/explicit-function-return-type": [
+        "warn",
+        {
+          allowExpressions: true,
+          allowTypedFunctionExpressions: true,
+        },
+      ],
       "@typescript-eslint/typedef": "warn",
       "@typescript-eslint/consistent-type-imports": "warn",
       "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
