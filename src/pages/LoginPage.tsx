@@ -1,5 +1,10 @@
 const LoginPage = () => {
-  return <p>LoginPage</p>;
+  return (
+    <div>
+      <h3>Login</h3>
+      <button className="btn">CLick</button>
+    </div>
+  );
 };
 
 export default LoginPage;

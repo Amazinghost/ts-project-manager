@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./App.css";
 import { useTaskStore } from "./stores/useTaskStore";
 import { Outlet } from "react-router";
 
@@ -14,8 +13,14 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="text-red-500">Vite + React</h1>
-      <Outlet />
+      <header></header>
+      <main>
+        <aside></aside>
+        <section>
+          <Outlet />
+        </section>
+      </main>
+      <footer></footer>
     </div>
   );
 };
