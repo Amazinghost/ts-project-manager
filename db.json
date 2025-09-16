@@ -6,7 +6,12 @@
       "password": "123",
       "name": "admin",
       "age": "25",
-      "rights": ["admin"]
+      "rights": [
+        "admin"
+      ]
+    },
+    {
+      "id": "0721"
     }
   ],
   "tasks": [

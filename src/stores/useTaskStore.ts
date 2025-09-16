@@ -7,7 +7,7 @@ interface TaskState {
   getAllTasks: () => Promise<void>;
 }
 
-export const useTaskStore = create<TaskState>((set) => ({
+export const useTaskStore = create<TaskState>()((set) => ({
   tasks: [],
   addTask: async (name) => {
     try {
