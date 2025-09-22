@@ -31,9 +31,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="p-7 inset-ring-2  rounded-xl flex flex-col items-center bg-gradient-to-r from-blue-700 to-emerald-200">
+    <div className="p-7 max-w-md inset-ring-2 rounded-xl flex flex-col items-center bg-gradient-to-r from-blue-700 to-emerald-200">
       <div className="p-3">
-        <h3 className="text-center font-bold text-2xl">Login</h3>
+        <h3 className="text-center font-bold text-2xl">{"Login"}</h3>
       </div>
       <div className="mt-5">
         <input
@@ -60,17 +60,17 @@ const LoginPage = () => {
             name="remember"
             className="checkbox"
           />
-          Remember me
+          {"Remember me"}
         </label>
-        <a className="link">Forgot password?</a>
+        <a className="link">{"Forgot password?"}</a>
       </div>
-      <button onClick={handleLoginClick} className="btn mt-8 w-full max-w-full">
-        Login
+      <button onClick={handleLoginClick} className="btn mt-8 w-full">
+        {"Login"}
       </button>
       <div className="mt-5 w-full flex justify-center">
-        <p>Don't have an account?</p>
+        <p>{"Don't have an account?"}</p>
         <Link to={SIGNUP_URL} className="link ml-1">
-          Sign Up
+          {"Sign Up"}
         </Link>
       </div>
     </div>
