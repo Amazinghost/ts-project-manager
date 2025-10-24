@@ -1,11 +1,12 @@
+import type { AxiosResponse } from "axios";
 import { api } from "./axiosInstance";
 
-export type Task = {
+export interface Task {
   id: number;
   name: string;
 };
 
 export const taskApi = {
-  getAll: () => api.get("/tasks"),
-  addTask: (name: string) => api.post("/tasks", { name }),
+  getAll: (): Promise<AxiosResponse<Task[]>> => api.get("/tasks"),
+  addTask: (name: string): Promise<AxiosResponse<Task>> => api.post("/tasks", { name }),
 };

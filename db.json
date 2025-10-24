@@ -1,4 +1,40 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "123",
+      "name": "admin",
+      "age": "25",
+      "rights": [
+        "admin"
+      ]
+    },
+    {
+      "id": "0721"
+    },
+    {
+      "id": "93fd",
+      "email": "test",
+      "name": "",
+      "age": 0,
+      "rights": []
+    },
+    {
+      "id": "4321",
+      "email": "TestSignUp",
+      "name": "",
+      "age": 0,
+      "rights": []
+    },
+    {
+      "id": "4bfc",
+      "email": "TestSignUp",
+      "name": "",
+      "age": 0,
+      "rights": []
+    }
+  ],
   "tasks": [
     {
       "id": "1",
