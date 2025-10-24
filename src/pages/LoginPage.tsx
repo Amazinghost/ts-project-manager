@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { SIGNUP_URL } from "../constants/urls";
+import { SIGNUP_PAGE_URL } from "../constants/urls";
 import { useState } from "react";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -31,47 +31,49 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="p-7 max-w-md inset-ring-2 rounded-xl flex flex-col items-center bg-gradient-to-r from-blue-700 to-emerald-200">
-      <div className="p-3">
-        <h3 className="text-center font-bold text-2xl">{"Login"}</h3>
-      </div>
-      <div className="mt-5">
-        <input
-          onChange={handleEmailChange}
-          type="email"
-          placeholder="Email"
-          value={emailValue}
-          className="input w-full"
-        />
-        <input
-          onChange={handlePasswordChange}
-          type="password"
-          placeholder="Password"
-          value={passwordValue}
-          className="input mt-3 w-full"
-        />
-      </div>
-      <div className="w-full mt-5 flex justify-between">
-        <label className="label">
+    <div className="flex justify-center items-center h-full">
+      <div className="p-7 max-w-md inset-ring-2 rounded-xl flex flex-col items-center bg-gradient-to-r from-blue-700 to-emerald-200">
+        <div className="p-3">
+          <h3 className="text-center font-bold text-2xl">{"Login"}</h3>
+        </div>
+        <div className="mt-5">
           <input
-            onChange={handleRememberChange}
-            checked={rememberChecked}
-            type="checkbox"
-            name="remember"
-            className="checkbox"
+            onChange={handleEmailChange}
+            type="email"
+            placeholder="Email"
+            value={emailValue}
+            className="input w-full"
           />
-          {"Remember me"}
-        </label>
-        <a className="link">{"Forgot password?"}</a>
-      </div>
-      <button onClick={handleLoginClick} className="btn mt-8 w-full">
-        {"Login"}
-      </button>
-      <div className="mt-5 w-full flex justify-center">
-        <p>{"Don't have an account?"}</p>
-        <Link to={SIGNUP_URL} className="link ml-1">
-          {"Sign Up"}
-        </Link>
+          <input
+            onChange={handlePasswordChange}
+            type="password"
+            placeholder="Password"
+            value={passwordValue}
+            className="input mt-3 w-full"
+          />
+        </div>
+        <div className="w-full mt-5 flex justify-between">
+          <label className="label">
+            <input
+              onChange={handleRememberChange}
+              checked={rememberChecked}
+              type="checkbox"
+              name="remember"
+              className="checkbox"
+            />
+            {"Remember me"}
+          </label>
+          <a className="link">{"Forgot password?"}</a>
+        </div>
+        <button onClick={handleLoginClick} className="btn mt-8 w-full">
+          {"Login"}
+        </button>
+        <div className="mt-5 w-full flex justify-center">
+          <p>{"Don't have an account?"}</p>
+          <Link to={SIGNUP_PAGE_URL} className="link ml-1">
+            {"Sign Up"}
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { userApi, type User } from "../api/userApi";
 import { generateAccessToken } from "../utils/loginUtils";
 import { devtools } from "zustand/middleware";
 import type { AxiosResponse } from "axios";
+import { isNilOrEmpty } from "../utils/common.utils";
 
 interface LoginPayload {
   email: string;
@@ -16,14 +17,17 @@ interface SignUpPayload {
 }
 
 interface UserState {
-  user: User;
+  user: User | null;
+  isLoggedIn: boolean;
   login: (payload: LoginPayload) => Promise<void>;
   signUp: (payload: SignUpPayload) => Promise<void>;
+  logout: () => Promise<void>;
 }
 
 export const useUserStore = create<UserState>()(
   devtools((set) => ({
     user: { email: "", name: "", age: 0, rights: [] },
+    isLoggedIn: !isNilOrEmpty(localStorage.getItem("token")),
     login: async (payload) => {
       try {
         const { data: allUsers } = await userApi.getAllUsers();
@@ -37,7 +41,7 @@ export const useUserStore = create<UserState>()(
 
           localStorage.setItem("token", token);
 
-          set({ user: currentUserFound[0] });
+          set({ user: currentUserFound[0], isLoggedIn: true });
         }
       } catch (e) {
         console.error(e);
@@ -66,6 +70,10 @@ export const useUserStore = create<UserState>()(
       } catch (e) {
         console.error(e);
       }
+    },
+    logout: () => {
+      localStorage.removeItem("token");
+      set({ user: null, isLoggedIn: false });
     },
   }))
 );
